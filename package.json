@@ -27,7 +27,8 @@
     "start": "node app.js",
     "app": "nodemon app",
     "react-watson": "npm start --prefix react-watson",
-    "dev": "concurrently \"npm run app\" \"npm run react-watson\""
+    "dev": "concurrently \"npm run app\" \"npm run react-watson\"",
+    "heroku-postbuild": "cd react-watson && yarn && yarn run build"
   },
   "main": "app.js",
   "dependencies": {
