@@ -9,15 +9,13 @@ require("dotenv").config();
 
 app.use(express.json());
 
-app.use("/", watsonRoutes);
-
 app.use(express.static(path.join(__dirname, "build")));
 
-app.get("/*", (request, response) => {
-  response.sendFile(
-    path.join(__dirname, "react-watson", "build", "index.html")
-  );
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "react-watson", "build", "index.html"));
 });
+
+app.use("/", watsonRoutes);
 
 const port = process.env.PORT || 3030;
 app.listen(port, () => {
