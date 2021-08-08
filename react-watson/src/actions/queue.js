@@ -19,7 +19,7 @@ export const userMessage = (message) => async (dispatch) => {
 
 export const createSession = () => async (dispatch) => {
   try {
-    const response = await axios.get("/session");
+    const response = await axios.get("/api/watson/session");
     dispatch({ type: SESSION_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: SESSION_FAIL });
@@ -29,12 +29,12 @@ export const createSession = () => async (dispatch) => {
 export const sendMessage = (message) => async (dispatch) => {
   try {
     const body = { input: message };
-    const response = await axios.post("/message", body);
+    const response = await axios.post("/api/watson/message", body);
     dispatch({
       type: MESSAGE_SUCCESS,
       payload: response.data.output.generic[0].text,
     });
-  } catch {
+  } catch (error) {
     dispatch({ type: MESSAGE_FAIL });
   }
 };

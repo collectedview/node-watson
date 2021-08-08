@@ -24,18 +24,19 @@
   ],
   "main": "app.js",
   "engines": {
-    "node": "16.4.0"
+    "node": "16.8.0",
+    "npm": "7.21.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "app": "nodemon app",
-    "react-watson": "npm start --prefix react-watson",
-    "dev": "concurrently \"npm run app\" \"npm run react-watson\"",
-    "heroku-postbuild": "cd react-watson && yarn && yarn run build"
+    "start": "node app",
+    "server": "nodemon app",
+    "react": "npm start --prefix react-watson",
+    "dev": "concurrently \"npm run server\" \"npm run react\"",
+    "heroku-postbuild": "cd react-watson && npm install && npm run build"
   },
   "dependencies": {
-    "dotenv": "^6.2.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "ibm-watson": "^6.1.1"
   },

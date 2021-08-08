@@ -11,7 +11,7 @@ const initialState = {
   messages: [],
 };
 
-export default (state = initialState, action) => {
+export default function watsonReducer(state = initialState, action) {
   const { type, payload } = action;
   let { messages } = state;
 
@@ -28,6 +28,7 @@ export default (state = initialState, action) => {
       };
     case SESSION_SUCCESS:
       localStorage.setItem("session", payload["session_id"]);
+      window.location.reload();
       return {
         ...state,
       };
@@ -50,4 +51,4 @@ export default (state = initialState, action) => {
         ...state,
       };
   }
-};
+}

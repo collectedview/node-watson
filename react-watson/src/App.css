@@ -30,9 +30,6 @@ body {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  transition: all 2s ease-out;
-  -webkit-transition: all 2s ease-out;
-  -moz-transition: all 2s ease-out;
   color: #121619;
   background-color: #edf5ff;
   font-family: "IBM Plex Sans", sans-serif;
@@ -40,18 +37,6 @@ body {
 
 ::selection {
   background: #1192e8;
-}
-
-::-webkit-scrollbar {
-  width: 1vw;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #33b1ff;
 }
 
 h1 {
@@ -125,4 +110,36 @@ h1 {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .chat-box {
+    min-width: 60vw;
+    max-width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .chat-box {
+    min-width: 90vw;
+  }
+}
+
+/* Loader */
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #edf5ff;
+}
+.loader svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

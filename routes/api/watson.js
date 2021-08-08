@@ -4,15 +4,12 @@ const router = express.Router();
 const AssistantV2 = require("ibm-watson/assistant/v2");
 const { IamAuthenticator } = require("ibm-watson/auth");
 
-const authenticator = new IamAuthenticator({
-  apikey: process.env.WATSON_ASSISTANT_APIKEY,
-});
-
 const assistant = new AssistantV2({
-  version: "2020-04-01",
-  serviceName: "assistant",
-  authenticator: authenticator,
-  url: process.env.WATSON_ASSISTANT_URL,
+  version: "2021-06-14",
+  authenticator: new IamAuthenticator({
+    apikey: process.env.WATSON_ASSISTANT_APIKEY,
+  }),
+  serviceUrl: process.env.WATSON_ASSISTANT_URL,
 });
 
 router.get("/session", async (request, response) => {

@@ -12,7 +12,7 @@ const Chat = ({ chat, userMessage, sendMessage }) => {
   };
   useEffect(scrollToBottom, [chat]);
 
-  const handleClick = async (event) => {
+  const handleKeyDown = async (event) => {
     const code = event.keyCode || event.which;
 
     if (code === 13) {
@@ -39,7 +39,7 @@ const Chat = ({ chat, userMessage, sendMessage }) => {
           <input
             className="chat-form"
             onChange={(event) => setMessage(event.target.value)}
-            onKeyPress={handleClick}
+            onKeyDown={handleKeyDown}
             value={message}
             placeholder="Enter Your Message"
           ></input>
