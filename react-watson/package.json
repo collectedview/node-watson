@@ -4,10 +4,11 @@
   "description": "Chatbot React Application — React, Redux, Axios, Node & Express Powered by IBM Watson | Develop virtual assistant features through JavaScript REST APIs. ",
   "private": false,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start-react-watson": "react-scripts start",
+    "build": "react-scripts build && (cd server && yarn install)",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "cd .. && yarn start"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",

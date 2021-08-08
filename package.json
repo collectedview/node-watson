@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app",
+    "start": "node app.js",
     "app": "nodemon app",
     "react-watson": "npm start --prefix react-watson",
     "dev": "concurrently \"npm run app\" \"npm run react-watson\""
